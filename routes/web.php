@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Superadmin\UserController as SUserController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ClienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +16,13 @@ use App\Http\Controllers\Superadmin\UserController as SUserController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->middleware('can:dashboard')->name('dashboard');
 
-Route::resource('users',SUserController::class)->middleware('can:super.users.index')->names('superadmin.users');
+Route::resource('users',UserController::class)->middleware('can:admin.users.index')->names('admin.users');
+
+Route::resource('clientes',ClienteController::class)->middleware('can:admin.clientes.index')->names('admin.clientes'); // El middleware lo puedo hacer con un solo permiso del superuser para no generar varios seeders con nuevos crud de permisos y migrar repetidamente (can:super.users.index)

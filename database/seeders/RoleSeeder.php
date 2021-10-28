@@ -15,31 +15,21 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $super = Role::create(['name' => 'Super']);
+
         $admin = Role::create(['name' => 'Admin']);
         $comercial = Role::create(['name' => 'Comercial']);
 
-        Permission::create(['name' => 'dashboard'])->syncRoles([$super,$admin,$comercial]);
+        Permission::create(['name' => 'dashboard'])->syncRoles([$admin,$comercial]);
 
-        Permission::create(['name' => 'super.users.index'])->assignRole($super);
-        Permission::create(['name' => 'super.users.create'])->assignRole($super);
-        Permission::create(['name' => 'super.users.edit'])->assignRole($super);
-        Permission::create(['name' => 'super.users.update'])->assignRole($super);
-        Permission::create(['name' => 'super.users.destroy'])->assignRole($super);
-
-        Permission::create(['name' => 'super.empresas.index'])->assignRole($super);
-        Permission::create(['name' => 'super.empresas.create'])->assignRole($super);
-        Permission::create(['name' => 'super.empresas.edit'])->assignRole($super);
-        Permission::create(['name' => 'super.empresas.destroy'])->assignRole($super);
- 
         Permission::create(['name' => 'admin.users.index'])->assignRole($admin);
         Permission::create(['name' => 'admin.users.create'])->assignRole($admin);
         Permission::create(['name' => 'admin.users.edit'])->assignRole($admin);
+        Permission::create(['name' => 'admin.users.update'])->assignRole($admin);
         Permission::create(['name' => 'admin.users.destroy'])->assignRole($admin);
 
-        Permission::create(['name' => 'admin.products.index'])->assignRole($admin);
-        Permission::create(['name' => 'admin.products.create'])->assignRole($admin);
-        Permission::create(['name' => 'admin.products.edit'])->assignRole($admin);
-        Permission::create(['name' => 'admin.products.destroy'])->assignRole($admin);
+        Permission::create(['name' => 'admin.clientes.index'])->syncRoles([$admin,$comercial]);
+        Permission::create(['name' => 'admin.clientes.create'])->syncRoles([$admin,$comercial]);
+        Permission::create(['name' => 'admin.clientes.edit'])->syncRoles([$admin,$comercial]);
+        Permission::create(['name' => 'admin.clientes.destroy'])->syncRoles([$admin,$comercial]);
     }
 }

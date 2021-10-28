@@ -16,10 +16,25 @@
 
 	<div class="card">
 		<div class="card-body">
-			<p class="h5">Nombre:</p>
-			<p class="form-control">{{ $user->name }}</p>
-			<h2 class="h5">Listado de Roles</h2>
-			{!! Form::model($user, ['route' => ['superadmin.users.update',$user], 'method' => 'put']) !!}
+			{!! Form::model($user, ['route' => ['admin.users.update',$user], 'method' => 'put']) !!}
+				<div class="form-group">
+					{!! Form::label('name','Nombre') !!}
+					{!! Form::text('name',null, ['class' => 'form-control','placeholder' => 'Ingrese el nombre del Usuario']) !!}
+					@error('name')
+						<span class="text-danger">{{ $message }}</span>
+					@enderror
+				</div>
+
+				<div class="form-group">
+					{!! Form::label('email','Correo') !!}
+					{!! Form::text('email',null, ['class' => 'form-control','placeholder' => 'Ingrese el correo del Usuario
+					']) !!}
+					@error('email')
+						<span class="text-danger">{{ $message }}</span>
+					@enderror
+				</div>
+
+				<label>Rol: </label>
 				@foreach($roles as $role)
 					<div>
 						<label>	

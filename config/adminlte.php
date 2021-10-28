@@ -15,7 +15,7 @@ return [
     */
 
     'title' => '',
-    'title_prefix' => 'Brick-T | ',
+    'title_prefix' => 'Konecta | ',
     'title_postfix' => '',
 
     /*
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Brick</b>T',
+    'logo' => '<b>PRUEBA </b>KONECTA',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -237,78 +237,22 @@ return [
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-            'can' => 'dashboard',
-        ],
-        ['header' => 'Menú Administrativo'],
+        
+        
         [
             'text' => 'Usuarios',
-            'route'  => 'superadmin.users.index',
+            'route'  => 'admin.users.index',
             'icon' => 'fas fa-fw fa-users',
-            'can' => 'super.users.index',
+            'can' => 'admin.users.index',
         ],
         [
-            'text' => 'Empresas',
-            'route'  => 'superadmin.users.index',
+            'text' => 'Clientes',
+            'route'  => 'admin.clientes.index',
             'icon' => 'fas fa-fw fa-warehouse',
-            'can' => 'super.users.index',
+            'can' => 'admin.clientes.index', //Podria generar mas seeders super.empresas.index y estar haciendo refresh o usar esos mismos permisos de superadmin
         ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+        
+        
     ],
 
     /*

@@ -17,11 +17,12 @@ class DatabaseSeeder extends Seeder
 
          \App\Models\User::create([
          	'name' => 'Santiago Lopera',
-         	'email' => 'santiagoloperam@gmail.com',
+            'email' => 'santiagoloperam@gmail.com',
          	'password' => bcrypt('123456789')
-         ])->assignRole('Super');
+         ])->assignRole('Admin');
 
          \App\Models\User::factory(20)->create();
+         \App\Models\Cliente::factory(20)->create();
 
          
     }

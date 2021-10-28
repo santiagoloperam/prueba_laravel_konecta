@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    @livewire('superadmin.users-index')
+    @livewire('admin.users-index')
 @stop
 
 @section('css')
